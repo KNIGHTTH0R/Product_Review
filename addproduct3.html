@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add product</title>
+</head>
+<body>
+	<form action="insert_product_database4.php" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>  </legend>
+			
+			<p>
+				<label for="pname"> Product name </label>
+				<input type="text" name="prod_name" id="pname" >
+			</p>
+
+			<p>
+				<label for="ptype"> Product type </label>
+				<select name="prod_type" id="ptype" onchange="brand_change(this.value)">
+                 
+                  <option value="">-select-</option>
+                  <option value="phone">phone</option>
+                  <option value="laptop">laptop</option>
+                  <option value="camera">camera</option>
+                  
+                </select>
+			</p>
+
+			<p>
+				<label for="pbrand"> Brand type </label>
+				<select name="brand_name" id="pbrand">
+                 
+                  <option value="">------</option>
+					<!--
+                  <option value="samsung">samsung</option>
+                  <option value="iphone">iphone</option>
+                  <option value="nikkon">nikkon</option>                  
+					-->
+                </select>
+
+			</p>
+
+			<p>
+				<label for="pimage"> Upload image </label>
+				<input type="file" name="prod_image" id="pimage">
+			</p>
+
+			<p>
+				<label for="pdesc"> Product desc </label>
+				<input type="text" name="prod_desc" id="pdesc">
+			</p>
+
+			<p>
+				<label for="pcost"> Cost </label>
+				<input type="text" name="prod_cost" id="pcost">
+			</p>
+
+			<p>
+				<label for="submit"> Submit </label>
+				<input type="submit" name="submit" id="submit" value="submit">
+			</p>
+
+		</fieldset>	
+	</form>
+
+	<script>
+		function brand_change(value){
+        
+        if (value == "phone"){
+            var a = "<option value='samsung'>samsung</option><option value='iphone'>iphone</option>  <option value='sony'>sony</option><option value='mi'>mi</option> " ;
+                document.getElementById("pbrand").innerHTML = a ;
+        } else if ( value == "laptop") {
+            
+            var b = "<select><option value='samsung'>samsung</option><option value='apple'>mac</option>  <option value='sony'>sony</option>" ;
+            document.getElementById("pbrand").innerHTML = b ;
+            
+        } else  if (value == "camera") {
+            var c = "<option value='nikkon'>nikkon</option><option value='sony'>sony</option>  <option value='goPro'>goPro</option>" ;
+            document.getElementById("pbrand").innerHTML = c ;
+            
+        }
+    }
+	</script>
+</body>
+</html>
